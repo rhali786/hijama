@@ -1,5 +1,7 @@
 # hijama
 
+**GitHub:** [github.com/rhali786/hijama](https://github.com/rhali786/hijama)
+
 Working materials for the Healing Hijamah website & marketing effort.
 
 ## 🪟 Project hub
