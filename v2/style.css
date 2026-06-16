@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap');
 
 :root {
-  --primary:    #2d5c52;
-  --primary-d:  #1e3f38;
-  --primary-l:  #e8f2f0;
-  --gold:       #b8945a;
-  --bg:         #fafaf8;
+  --primary:    #1E3A5F;
+  --primary-d:  #1A3A54;
+  --primary-l:  #e8f0f8;
+  --cta:        #E8604C;
+  --cta-d:      #D4746B;
+  --gold:       #fbbf24;
+  --bg:         #F4F2EE;
   --white:      #ffffff;
-  --warm:       #f7f2ea;
-  --ink:        #1a1816;
-  --ink-soft:   #4a4038;
-  --muted:      #8a7d74;
+  --warm:       #E8E5DF;
+  --ink:        #111827;
+  --ink-soft:   #374151;
+  --muted:      #6b7280;
   --border:     rgba(0, 0, 0, 0.09);
-  --border-em:  rgba(45, 92, 82, 0.35);
+  --border-em:  rgba(30, 58, 95, 0.35);
   --shadow-sm:  0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.06);
   --shadow-md:  0 2px 6px rgba(0,0,0,0.07), 0 12px 32px rgba(0,0,0,0.09);
   --shadow-lg:  0 4px 12px rgba(0,0,0,0.08), 0 24px 56px rgba(0,0,0,0.12);
@@ -22,7 +24,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Lexend', 'Inter', system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
@@ -49,7 +51,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 600;
   color: var(--ink);
@@ -90,10 +92,10 @@ body {
 .btn:active { transform: translateY(0); }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--cta);
   color: #fff;
 }
-.btn-primary:hover { background: var(--primary-d); box-shadow: 0 4px 16px rgba(45,92,82,0.3); }
+.btn-primary:hover { background: var(--cta-d); box-shadow: 0 4px 16px rgba(232,96,76,0.35); }
 
 .btn-outline {
   background: transparent;
@@ -136,7 +138,7 @@ body {
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--ink);
@@ -168,7 +170,7 @@ body {
 
 /* ── Hero ─────────────────────────────────── */
 .hero {
-  background-color: #1e3f38;
+  background-color: #1E3A5F;
   background-size: cover;
   background-position: center top;
   padding: 3.5rem 0 3.75rem;
@@ -180,7 +182,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(15,50,43,0.92) 0%, rgba(30,70,60,0.86) 55%, rgba(45,95,85,0.80) 100%);
+  background: linear-gradient(150deg, rgba(26,58,84,0.93) 0%, rgba(30,58,95,0.87) 55%, rgba(40,75,115,0.80) 100%);
   z-index: 0;
 }
 
@@ -201,7 +203,7 @@ body {
 }
 
 .hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 600;
   line-height: 1.08;
@@ -369,7 +371,7 @@ body {
 
 .price {
   display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: 2rem;
   font-weight: 600;
   color: var(--ink);
@@ -384,7 +386,7 @@ body {
 }
 
 .service-card h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--ink);
@@ -758,7 +760,7 @@ body {
 }
 
 .prep-card h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--ink);
@@ -960,7 +962,7 @@ body {
 
 /* ── CTA band ─────────────────────────────── */
 .cta-band {
-  background: linear-gradient(135deg, #1e3f38 0%, #2d5c52 100%);
+  background: linear-gradient(135deg, #1A3A54 0%, #1E3A5F 100%);
   padding: 4rem 0;
 }
 
@@ -969,7 +971,7 @@ body {
 }
 
 .cta-band h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 600;
   color: #fff;
@@ -1001,7 +1003,7 @@ body {
 
 .footer-brand strong {
   display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Lexend', system-ui, sans-serif;
   font-size: 1.2rem;
   color: #fff;
   margin-bottom: 0.4rem;
