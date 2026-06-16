@@ -3,33 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Healing Hijamah — Project</title>
+  <title>Healing Hijamah — Project Hub</title>
   <style>
-    :root { --ink: #2a2320; --accent: #7c4a32; --bg: #faf6f1; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--ink); background: var(--bg); line-height: 1.6;
+    :root {
+      --plum: #4a2233;
+      --plum-deep: #36172459;
+      --clay: #b4623f;
+      --clay-soft: #c98062;
+      --sand: #f3e7da;
+      --cream: #faf4ec;
+      --ink: #2c2220;
+      --muted: #7a6a60;
+      --line: #e7d8c8;
     }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem; }
-    h1 { font-size: 2rem; margin-bottom: .25rem; }
-    .sub { color: var(--accent); font-weight: 600; margin-top: 0; }
-    a { color: var(--accent); }
-    .card { background: #fff; border: 1px solid #ece3d8; border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1rem 0; }
-    footer { margin-top: 3rem; font-size: .85rem; color: #8a7f76; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, #fff7ef 0%, rgba(255,247,239,0) 60%),
+        radial-gradient(900px 500px at 110% 0%, #f6e3d6 0%, rgba(246,227,214,0) 55%),
+        var(--cream);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 4rem; }
+
+    /* Header */
+    .eyebrow {
+      text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; font-weight: 700;
+      color: var(--clay);
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.1; margin: .4rem 0 .6rem;
+      color: var(--plum); letter-spacing: -0.02em;
+    }
+    .lede { color: var(--muted); max-width: 54ch; margin: 0; font-size: 1.05rem; }
+
+    .crest {
+      display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 16px;
+      background: linear-gradient(150deg, var(--clay) 0%, var(--plum) 100%);
+      color: #fff; font-weight: 800; font-size: 1.35rem; box-shadow: 0 12px 30px -14px rgba(74,34,51,.6);
+      margin-bottom: 1.1rem;
+    }
+
+    /* Cards */
+    .grid { margin-top: 2.5rem; display: grid; gap: 1rem; }
+    .card {
+      display: flex; gap: 1.1rem; align-items: flex-start;
+      text-decoration: none; color: inherit;
+      background: #fffdfb; border: 1px solid var(--line); border-radius: 16px;
+      padding: 1.25rem 1.35rem;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 44px -28px rgba(74,34,51,.55);
+      border-color: var(--clay-soft);
+    }
+    .card .icon {
+      flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+      font-size: 1.3rem; background: var(--sand); color: var(--plum);
+    }
+    .card h3 { margin: .1rem 0 .25rem; font-size: 1.15rem; color: var(--plum); }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .card .go { margin-left: auto; align-self: center; color: var(--clay); font-weight: 700; font-size: 1.2rem; }
+
+    .tag {
+      display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: .15rem .5rem; border-radius: 999px; margin-left: .5rem;
+      vertical-align: middle;
+    }
+    .tag.ready { background: #e8f0e4; color: #46663a; }
+    .tag.soon { background: var(--sand); color: var(--clay); }
+
+    .card.soon { opacity: .72; cursor: default; }
+    .card.soon:hover { transform: none; box-shadow: none; border-color: var(--line); }
+    .card.soon .go { color: var(--muted); }
+
+    .section-label {
+      margin: 2.5rem 0 .25rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    footer {
+      margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
+      font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .4rem 1rem;
+    }
+    footer a { color: var(--clay); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Healing Hijamah</h1>
-    <p class="sub">Website &amp; marketing project workspace</p>
-    <p>This repository hosts working materials for the Healing Hijamah website effort.</p>
-    <div class="card">
-      <strong>Website review</strong>
-      <p>A marketing/conversion review of the current and revised sites, with prioritized fixes.</p>
-      <p><a href="website-review.md">Read the review &rarr;</a></p>
+    <div class="crest">ح</div>
+    <p class="eyebrow">Healing Hijamah · project hub</p>
+    <h1>Make the website book appointments</h1>
+    <p class="lede">
+      A working hub for the Healing Hijamah website effort — the marketing review, the prioritized
+      action plan, and (soon) live prototypes of the proposed changes. The whole point: turn an
+      informative brochure into something that books a session like a pizza order.
+    </p>
+
+    <p class="section-label">Findings &amp; plan</p>
+    <div class="grid">
+      <a class="card" href="website-review.md">
+        <div class="icon">🔍</div>
+        <div>
+          <h3>Website Review <span class="tag ready">Ready</span></h3>
+          <p>Full conversion review of the current and revised sites — what's strong, what leaks
+             bookings, and where the customer's three real questions go unanswered.</p>
+        </div>
+        <div class="go">&rarr;</div>
+      </a>
+
+      <a class="card" href="action-items.md">
+        <div class="icon">✅</div>
+        <div>
+          <h3>Action Items <span class="tag ready">Ready</span></h3>
+          <p>Prioritized fixes (Tiers 1–3), recommended design &amp; workflow changes, and a candid
+             "where I push back" on the content and CTA calls.</p>
+        </div>
+        <div class="go">&rarr;</div>
+      </a>
     </div>
-    <footer>Published with GitHub Pages.</footer>
+
+    <p class="section-label">Prototypes</p>
+    <div class="grid">
+      <div class="card soon">
+        <div class="icon">🧪</div>
+        <div>
+          <h3>Revised site prototypes <span class="tag soon">Coming soon</span></h3>
+          <p>Before/after previews of the proposed changes — control-panel hero, immediate booking,
+             tightened testimonials. Each will open from here once built.</p>
+        </div>
+        <div class="go">&rarr;</div>
+      </div>
+    </div>
+
+    <footer>
+      <span>Healing Hijamah project workspace</span>
+      <a href="https://healing-hijamah.vercel.app/">Revised site</a>
+      <a href="https://www.healinghijamah.com/">Original site</a>
+    </footer>
   </div>
 </body>
 </html>
