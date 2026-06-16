@@ -38,7 +38,7 @@ body {
   padding: 0 1.5rem;
 }
 
-.section { padding: 4.5rem 0; }
+.section { padding: 3rem 0; }            /* Tier 3: compressed from 4.5rem */
 .section-warm { background: var(--warm); }
 
 .section-eyebrow {
@@ -170,23 +170,55 @@ body {
 
 /* ── Hero ─────────────────────────────────── */
 .hero {
-  background-color: #1E3A5F;
-  background-size: cover;
-  background-position: center top;
+  background-color: #2a1a12;        /* warm base from the revision */
   padding: 3.5rem 0 3.75rem;
   color: #fff;
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Moving background — slow, noticeable Ken Burns pan + zoom */
+.hero-bg {
+  position: absolute;
+  inset: -8%;                       /* overscan so the pan never shows edges */
+  z-index: 0;
+  background-image: url('https://cdn.sanity.io/images/jpductgv/production/8e1a7a48d43497dd1bb9bf25816871af699ece83-6720x4480.jpg?w=1920&h=1200&fit=crop&auto=format');
+  background-size: cover;
+  background-position: center;
+  animation: heroPan 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroPan {
+  from { transform: scale(1.05) translate3d(0, 0, 0); }
+  to   { transform: scale(1.2) translate3d(-3%, -3%, 0); }
+}
+
+/* The candle from the revision — warm ambient glow at the right edge */
+.hero-candle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 115%;
+  width: auto;
+  z-index: 1;
+  opacity: 0.55;
+  pointer-events: none;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 45%, #000 100%);
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(26,58,84,0.93) 0%, rgba(30,58,95,0.87) 55%, rgba(40,75,115,0.80) 100%);
-  z-index: 0;
+  background: linear-gradient(105deg, rgba(38,22,14,0.88) 0%, rgba(58,30,18,0.66) 55%, rgba(74,40,22,0.42) 100%);
+  z-index: 2;
 }
 
-.hero .container { position: relative; z-index: 1; }
+.hero .container { position: relative; z-index: 3; }
 
 .hero-badge {
   display: inline-block;
@@ -245,7 +277,7 @@ body {
 
 .trust-strip span::before {
   content: '✓ ';
-  color: rgba(185,228,210,0.9);
+  color: rgba(255,210,170,0.95);
   font-weight: 700;
 }
 
@@ -963,7 +995,7 @@ body {
 /* ── CTA band ─────────────────────────────── */
 .cta-band {
   background: linear-gradient(135deg, #1A3A54 0%, #1E3A5F 100%);
-  padding: 4rem 0;
+  padding: 2.75rem 0;
 }
 
 .cta-band-inner {
@@ -1037,6 +1069,129 @@ body {
   color: rgba(255,255,255,0.35);
   line-height: 1.6;
 }
+
+/* ── Reviews: "read more" collapsible ─────── */
+.reviews-more {
+  margin-top: 1.25rem;
+}
+
+.reviews-more > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 auto;
+  width: fit-content;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 0.6rem 1.1rem;
+  border: 1.5px solid var(--border-em);
+  border-radius: 100px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.reviews-more > summary::-webkit-details-marker { display: none; }
+.reviews-more > summary:hover { background: var(--primary-l); }
+.reviews-more > summary::after { content: ' ↓'; }
+.reviews-more[open] > summary::after { content: ' ↑'; }
+.reviews-more[open] > summary { margin-bottom: 1.25rem; }
+
+.reviews-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+/* ── Booking: required + validation ───────── */
+.form-field label .req { color: var(--cta); margin-left: 0.15rem; }
+
+.form-field .field-error {
+  display: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--cta-d);
+  margin-top: 0.3rem;
+}
+
+.form-field.invalid input,
+.form-field.invalid select {
+  border-color: var(--cta);
+  box-shadow: 0 0 0 3px rgba(232, 96, 76, 0.12);
+}
+
+.form-field.invalid .field-error { display: block; }
+
+.booking-error-summary {
+  display: none;
+  background: #fef2f2;
+  border: 1px solid rgba(232, 96, 76, 0.4);
+  color: var(--cta-d);
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.booking-error-summary.show { display: block; }
+
+.btn-book .btn-price { font-weight: 700; }
+
+/* ── Legal / policy pages ─────────────────── */
+.legal {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.legal h1 {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.legal .updated {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 2.25rem;
+}
+
+.legal h2 {
+  font-family: 'Lexend', system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 2.25rem 0 0.75rem;
+}
+
+.legal p,
+.legal li {
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.legal p { margin-bottom: 0.9rem; }
+.legal ul { margin: 0 0 1rem 1.25rem; }
+.legal li { margin-bottom: 0.45rem; }
+.legal strong { color: var(--ink); }
+.legal a { color: var(--cta-d); text-decoration: none; border-bottom: 1px solid rgba(212,116,107,0.4); }
+.legal a:hover { border-bottom-color: var(--cta-d); }
+
+.legal-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+.legal-back:hover { text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
