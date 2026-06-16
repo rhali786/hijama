@@ -232,6 +232,13 @@ h1 {
   color: var(--terracotta);
 }
 
+.doc-card--highlight {
+  border-color: var(--terracotta);
+  background: rgba(189, 93, 63, 0.04);
+}
+
+.doc-card--highlight strong { color: var(--terracotta); }
+
 /* ── Hub: external site cards ─────────────── */
 .ext-stack {
   display: flex;
