@@ -4,149 +4,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Healing Hijamah — Project Hub</title>
-  <style>
-    :root {
-      --plum: #4a2233;
-      --plum-deep: #36172459;
-      --clay: #b4623f;
-      --clay-soft: #c98062;
-      --sand: #f3e7da;
-      --cream: #faf4ec;
-      --ink: #2c2220;
-      --muted: #7a6a60;
-      --line: #e7d8c8;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; }
-    body {
-      font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(1200px 600px at 15% -10%, #fff7ef 0%, rgba(255,247,239,0) 60%),
-        radial-gradient(900px 500px at 110% 0%, #f6e3d6 0%, rgba(246,227,214,0) 55%),
-        var(--cream);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    .wrap { max-width: 860px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 4rem; }
-
-    /* Header */
-    .eyebrow {
-      text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; font-weight: 700;
-      color: var(--clay);
-    }
-    h1 {
-      font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.1; margin: .4rem 0 .6rem;
-      color: var(--plum); letter-spacing: -0.02em;
-    }
-    .lede { color: var(--muted); max-width: 54ch; margin: 0; font-size: 1.05rem; }
-
-    .crest {
-      display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 16px;
-      background: linear-gradient(150deg, var(--clay) 0%, var(--plum) 100%);
-      color: #fff; font-weight: 800; font-size: 1.35rem; box-shadow: 0 12px 30px -14px rgba(74,34,51,.6);
-      margin-bottom: 1.1rem;
-    }
-
-    /* Cards */
-    .grid { margin-top: 2.5rem; display: grid; gap: 1rem; }
-    .card {
-      display: flex; gap: 1.1rem; align-items: flex-start;
-      text-decoration: none; color: inherit;
-      background: #fffdfb; border: 1px solid var(--line); border-radius: 16px;
-      padding: 1.25rem 1.35rem;
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 22px 44px -28px rgba(74,34,51,.55);
-      border-color: var(--clay-soft);
-    }
-    .card .icon {
-      flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
-      font-size: 1.3rem; background: var(--sand); color: var(--plum);
-    }
-    .card h3 { margin: .1rem 0 .25rem; font-size: 1.15rem; color: var(--plum); }
-    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
-    .card .go { margin-left: auto; align-self: center; color: var(--clay); font-weight: 700; font-size: 1.2rem; }
-
-    .tag {
-      display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; padding: .15rem .5rem; border-radius: 999px; margin-left: .5rem;
-      vertical-align: middle;
-    }
-    .tag.ready { background: #e8f0e4; color: #46663a; }
-    .tag.soon { background: var(--sand); color: var(--clay); }
-
-    .card.soon { opacity: .72; cursor: default; }
-    .card.soon:hover { transform: none; box-shadow: none; border-color: var(--line); }
-    .card.soon .go { color: var(--muted); }
-
-    .section-label {
-      margin: 2.5rem 0 .25rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--muted);
-    }
-
-    footer {
-      margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--line);
-      font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .4rem 1rem;
-    }
-    footer a { color: var(--clay); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrap">
-    <div class="crest">ح</div>
-    <p class="eyebrow">Healing Hijamah · project hub</p>
-    <h1>Make the website book appointments</h1>
-    <p class="lede">
-      A working hub for the Healing Hijamah website effort — the marketing review, the prioritized
-      action plan, and (soon) live prototypes of the proposed changes. The whole point: turn an
-      informative brochure into something that books a session like a pizza order.
-    </p>
 
-    <p class="section-label">Findings &amp; plan</p>
-    <div class="grid">
-      <a class="card" href="website-review.md">
-        <div class="icon">🔍</div>
-        <div>
-          <h3>Website Review <span class="tag ready">Ready</span></h3>
-          <p>Full conversion review of the current and revised sites — what's strong, what leaks
-             bookings, and where the customer's three real questions go unanswered.</p>
-        </div>
-        <div class="go">&rarr;</div>
+  <header class="site-header">
+    <!-- Cup mark circles: the rings left on skin by hijama cups -->
+    <svg class="cups" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="220" cy="90"  r="78"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+      <circle cx="285" cy="155" r="52"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+      <circle cx="155" cy="160" r="60"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+      <circle cx="300" cy="38"  r="40"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+      <circle cx="100" cy="105" r="45"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+      <circle cx="250" cy="22"  r="30"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+      <circle cx="175" cy="30"  r="20"  fill="none" stroke="#c7788d" stroke-width="1.5"/>
+    </svg>
+    <div class="inner">
+      <p class="eyebrow">Healing Hijamah · Website Effort</p>
+      <h1>Project Hub</h1>
+      <p class="sub">Khadijah, R.N. — women-only hijama practice</p>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <p class="section-label">Working materials</p>
+
+    <div class="doc-grid">
+      <a href="website-review.html" class="doc-card">
+        <strong>Website Review</strong>
+        <p>Conversion audit of both sites. The revision is a real upgrade — the shared fatal gap is no pricing and no live booking.</p>
+        <span class="read">Read the review →</span>
       </a>
-
-      <a class="card" href="action-items.md">
-        <div class="icon">✅</div>
-        <div>
-          <h3>Action Items <span class="tag ready">Ready</span></h3>
-          <p>Prioritized fixes (Tiers 1–3), recommended design &amp; workflow changes, and a candid
-             "where I push back" on the content and CTA calls.</p>
-        </div>
-        <div class="go">&rarr;</div>
+      <a href="action-items.html" class="doc-card">
+        <strong>Action Items</strong>
+        <p>Prioritized fixes in three tiers. Tier 1 alone — live booking, price, one CTA — is where the bookings are lost.</p>
+        <span class="read">Read the plan →</span>
       </a>
     </div>
 
-    <p class="section-label">Prototypes</p>
-    <div class="grid">
-      <div class="card soon">
-        <div class="icon">🧪</div>
-        <div>
-          <h3>Revised site prototypes <span class="tag soon">Coming soon</span></h3>
-          <p>Before/after previews of the proposed changes — control-panel hero, immediate booking,
-             tightened testimonials. Each will open from here once built.</p>
+    <div class="section-gap">
+      <p class="section-label">Live sites</p>
+      <div class="ext-stack">
+        <a href="https://healing-hijamah.vercel.app/" class="ext-card" target="_blank" rel="noopener">
+          <div>
+            <div class="label">Revision site</div>
+            <div class="url">healing-hijamah.vercel.app</div>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+        <a href="https://www.healinghijamah.com/" class="ext-card" target="_blank" rel="noopener">
+          <div>
+            <div class="label">Original site</div>
+            <div class="url">healinghijamah.com</div>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-gap">
+      <p class="section-label">Tier 1 priorities</p>
+      <div class="priorities">
+        <div class="priority-row">
+          <span class="p-tag">T1 · 1</span>
+          <span class="p-text">Replace the inquiry form with a real scheduler — pick a slot, pay a deposit, get instant confirmation.</span>
         </div>
-        <div class="go">&rarr;</div>
+        <div class="priority-row">
+          <span class="p-tag">T1 · 2</span>
+          <span class="p-text">Show a price (or "from $X") on every package. Price is the #1 reason ready visitors bounce.</span>
+        </div>
+        <div class="priority-row">
+          <span class="p-tag">T1 · 3</span>
+          <span class="p-text">One CTA everywhere: "Book your session." Retire the mix of labels across the current site.</span>
+        </div>
+        <div class="priority-row">
+          <span class="p-tag">T1 · 4</span>
+          <span class="p-text">Sticky Book button so the action is always one tap away on mobile.</span>
+        </div>
+        <div class="priority-row">
+          <span class="p-tag">T1 · 5</span>
+          <span class="p-text">Above the fold: credentials + what it fixes + price cue + Book. No tall ambiance hero before the substance.</span>
+        </div>
       </div>
     </div>
 
     <footer>
       <span>Healing Hijamah project workspace</span>
-      <a href="https://healing-hijamah.vercel.app/">Revised site</a>
-      <a href="https://www.healinghijamah.com/">Original site</a>
+      <a href="https://github.com/rhali786/hijama" target="_blank" rel="noopener">github.com/rhali786/hijama</a>
     </footer>
-  </div>
+
+  </main>
+
 </body>
 </html>
