@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["C:\\PROJECTS\\hijama\\.claude\\commit-push.js"],
+            "timeout": 30,
+            "statusMessage": "Pushing changes to GitHub..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)"
+    ]
+  }
+}

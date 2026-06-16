@@ -8,3 +8,6 @@ Thumbs.db
 # Logs / temp
 *.log
 .tmp/
+
+# Claude Code local overrides (personal, not shared)
+.claude/settings.local.json
